@@ -4,6 +4,8 @@
   "license": "ISC",
   "scripts": {
     "setup": "yarn install && yarn --cwd ./client install && yarn --cwd ./server install",
+    "db:run": "docker-compose up -d",
+    "db:stop": "docker-compose stop",
     "start": "concurrently \"yarn --cwd ./client start\" \"yarn --cwd ./server start\"",
     "clean:client": "rimraf ./client/build",
     "clean:server": "rimraf ./server/build",
