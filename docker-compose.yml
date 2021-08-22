@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mongodb:
+    container_name: guestbook_dev_mongodb
+    image: mongo:4.4
+    ports:
+      - '27017:27017'
+    env_file:
+      - docker.env.development
+    volumes:
+      - guestbook_dev_data:/data/db
+    logging:
+      driver: json-file
+      options:
+        max-size: '1m'
+        max-file: '1'
+
+volumes:
+  guestbook_dev_data:
+    driver: local
