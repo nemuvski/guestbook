@@ -1,0 +1,16 @@
+{
+  "type": "mongodb",
+  "useUnifiedTopology": true,
+  "useNewUrlParser": true,
+  "authSource": "admin",
+  "host": "localhost",
+  "port": 27018,
+  "username": "obiwan",
+  "password": "NaWIbO",
+  "database": "guestbook",
+  "logging": true,
+  "synchronize": false,
+  "entities": [
+    "src/entity/**/*.ts"
+  ]
+}
