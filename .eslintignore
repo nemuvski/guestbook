@@ -1,4 +1,5 @@
-public
-build
+client/public
+client/build
+server/build
 .prettierrc.js
 .eslintrc.js
