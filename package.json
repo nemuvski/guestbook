@@ -1,0 +1,31 @@
+{
+  "name": "guestbook",
+  "version": "1.0.0",
+  "license": "ISC",
+  "scripts": {
+    "setup": "yarn install && yarn --cwd ./client install && yarn --cwd ./server install",
+    "start": "concurrently \"yarn --cwd ./client start\" \"yarn --cwd ./server start\"",
+    "clean:client": "rimraf ./client/build",
+    "clean:server": "rimraf ./server/build",
+    "clean": "yarn clean:client && yarn clean:server",
+    "build:client": "yarn clean:client && yarn --cwd ./client build",
+    "build:server": "yarn clean:server && yarn --cwd ./server build",
+    "build": "yarn build:client && yarn build:server",
+    "lint:client": "eslint --ext .js,.jsx,.ts,.tsx ./client/src",
+    "lint:server": "eslint --ext .js,.jsx,.ts,.tsx ./server/src",
+    "lint": "yarn lint:client || yarn lint:server",
+    "format": "prettier --check '**/*.{js,jsx,ts,tsx}'",
+    "format:fix": "prettier --write '**/*.{js,jsx,ts,tsx}'"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.1",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-react": "^7.24.0",
+    "prettier": "^2.3.2",
+    "rimraf": "^3.0.2"
+  }
+}
