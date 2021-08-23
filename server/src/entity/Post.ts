@@ -1,4 +1,4 @@
-import { Column, Entity, BaseEntity, ObjectID, ObjectIdColumn } from 'typeorm';
+import { Column, Entity, BaseEntity, ObjectID, ObjectIdColumn, CreateDateColumn } from 'typeorm';
 
 @Entity()
 export class Post extends BaseEntity {
@@ -7,4 +7,7 @@ export class Post extends BaseEntity {
 
   @Column()
   body: string;
+
+  @CreateDateColumn({ type: 'timestamp' })
+  createdAt: Date;
 }

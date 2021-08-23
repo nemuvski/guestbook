@@ -12,7 +12,7 @@ import { ICreatePostRequestPayload } from '../route/post.router';
 export const getPosts = async (page: number, numPerPage: number, take?: number) => {
   const postRepository = getRepository(Post);
   return postRepository.find({
-    order: { id: 'DESC' },
+    order: { createdAt: 'DESC' },
     take: take ?? numPerPage,
     skip: (page - 1) * numPerPage,
   });

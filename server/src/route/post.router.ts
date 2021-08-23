@@ -7,25 +7,10 @@ import { Post } from '../entity/Post';
 export interface IGetPostsResponsePayload {
   currentPage: number;
   nextPage?: number;
-  posts: Array<ResponsePost>;
+  posts: Array<Post>;
 }
 export interface ICreatePostRequestPayload {
   body: string;
-}
-
-/**
- * レスポンスに含める内容のPostのモデル
- */
-export class ResponsePost {
-  id: string;
-  body: string;
-  createdAt: Date;
-
-  constructor(post: Post) {
-    this.id = post.id.toString();
-    this.body = post.body;
-    this.createdAt = post.id.getTimestamp();
-  }
 }
 
 const router = express.Router();
@@ -49,7 +34,7 @@ router.get('/', PostValidator.getPostsValidator, async (req, res) => {
   return res.status(200).send({
     currentPage: parsedPage,
     nextPage: nextPageResults.length ? parsedPage + 1 : undefined,
-    posts: currentPageResults.map((result) => new ResponsePost(result)),
+    posts: currentPageResults,
   } as IGetPostsResponsePayload);
 });
 
@@ -63,7 +48,7 @@ router.post('/', PostValidator.createPostValidator, async (req, res) => {
   }
   const payload = req.body as ICreatePostRequestPayload;
   const result = await createPost(payload);
-  return res.status(201).send(new ResponsePost(result));
+  return res.status(201).send(result);
 });
 
 export default router;
