@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import { createConnection } from 'typeorm';
 import dotenv from 'dotenv';
 import path from 'path';
+import cors from 'cors';
 import morgan from 'morgan';
 import Router from './route';
 
@@ -17,6 +18,7 @@ dotenv.config({
  * Expressサーバーの設定
  */
 const app = express();
+process.env.ALLOWED_ORIGIN && app.use(cors({ origin: [process.env.ALLOWED_ORIGIN] }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined'));
