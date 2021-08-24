@@ -10,6 +10,7 @@ const root = css`
   height: 4.5rem;
   background-color: var(--color-primary);
   border-bottom: 0.25rem solid var(--color-primary-light);
+  transition: opacity ease-in-out 0.5s;
 `;
 
 const title = css`
