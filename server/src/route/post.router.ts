@@ -7,7 +7,7 @@ import { Post } from '../entity/Post';
 export interface IGetPostsResponsePayload {
   currentPage: number;
   nextPage?: number;
-  posts: Array<Post>;
+  items: Array<Post>;
 }
 export interface ICreatePostRequestPayload {
   body: string;
@@ -34,7 +34,7 @@ router.get('/', PostValidator.getPostsValidator, async (req, res) => {
   return res.status(200).send({
     currentPage: parsedPage,
     nextPage: nextPageResults.length ? parsedPage + 1 : undefined,
-    posts: currentPageResults,
+    items: currentPageResults,
   } as IGetPostsResponsePayload);
 });
 
