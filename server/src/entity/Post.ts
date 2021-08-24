@@ -9,5 +9,5 @@ export class Post extends BaseEntity {
   body: string;
 
   @CreateDateColumn({ type: 'timestamp' })
-  createdAt: Date;
+  readonly createdAt: Date;
 }
