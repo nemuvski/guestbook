@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import EditIcon from './icons/EditIcon';
-import PostFormStyle from '../styles/post-form.style';
 import { useCreatePostMutation } from '../stores/post/api';
+import { resetPostListViewPage } from '../stores/post/slice';
+import PostFormStyle from '../styles/post-form.style';
 
 type FormFields = {
   body: string;
@@ -11,6 +13,7 @@ type FormFields = {
 const FIELD_BODY_MAX_LENGTH = 100;
 
 const PostForm: React.FC = () => {
+  const dispatch = useDispatch();
   const [createPost] = useCreatePostMutation();
   const {
     register,
@@ -57,6 +60,7 @@ const PostForm: React.FC = () => {
             .unwrap()
             .finally(() => {
               reset();
+              dispatch(resetPostListViewPage());
             });
         })}
       >

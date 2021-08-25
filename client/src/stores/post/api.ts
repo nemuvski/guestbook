@@ -5,6 +5,10 @@ export type GetPostsParams = {
   page: number;
   numPerPage: number;
 };
+export const buildGetPostsParams = (page: number, numPerPage = 10): GetPostsParams => ({
+  page,
+  numPerPage,
+});
 export type CreatePostRequest = {
   body: string;
 };
@@ -45,4 +49,5 @@ export const postApi = guestbookApi.injectEndpoints({
   }),
 });
 
-export const { useGetPostsQuery, useCreatePostMutation } = postApi;
+export const { useCreatePostMutation } = postApi;
+export const useGetPostsLazyQuery = postApi.endpoints.getPosts.useLazyQuery;
