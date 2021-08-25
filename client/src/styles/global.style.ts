@@ -2,7 +2,7 @@ import { css } from '@emotion/react';
 import { bp, Breakpoint } from './breakpoints.mixin';
 
 const googleFonts = css`
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Kaushan+Script&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Kaushan+Script&display=swap');
 `;
 
 const palette = css`
