@@ -3,6 +3,7 @@ import { bp, Breakpoint } from './breakpoints.mixin';
 
 const root = css`
   position: fixed;
+  z-index: 10;
   overflow-y: hidden;
   display: flex;
   align-items: center;
@@ -10,7 +11,7 @@ const root = css`
   height: 4.5rem;
   background-color: var(--color-primary);
   border-bottom: 0.25rem solid var(--color-primary-light);
-  transition: opacity ease-in-out 0.5s;
+  transition: opacity ease-in-out 0.3s;
 `;
 
 const title = css`
@@ -18,10 +19,9 @@ const title = css`
   font-family: 'Kaushan Script', cursive;
   font-size: 2.25rem;
   letter-spacing: 0.05rem;
-  text-align: center;
 
-  ${bp(Breakpoint.S_MIN)} {
-    text-align: left;
+  ${bp(Breakpoint.XS_MAX, false)} {
+    text-align: center;
   }
 `;
 

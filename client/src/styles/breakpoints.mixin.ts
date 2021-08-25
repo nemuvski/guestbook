@@ -1,4 +1,5 @@
 export const Breakpoint = {
+  XS_MAX: 539,
   S_MIN: 540,
   S_MAX: 767,
   M_MIN: 768,

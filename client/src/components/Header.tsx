@@ -4,7 +4,7 @@ import InnerContainer from './InnerContainer';
 import { useScroll } from '../hooks/useScroll';
 
 const Header = () => {
-  const isMoved = useScroll(30);
+  const isMoved = useScroll(60);
 
   return (
     <header
