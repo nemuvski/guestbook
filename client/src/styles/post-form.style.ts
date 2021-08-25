@@ -67,7 +67,7 @@ const action = css`
   ${bp(Breakpoint.S_MIN)} {
     flex: 0 0 3rem;
     margin-left: 0.5rem;
-    
+
     &:not(:disabled):hover {
       background-color: var(--color-secondary);
     }
