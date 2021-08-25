@@ -9,7 +9,7 @@ import PostListStyle from '../styles/post-list.style';
 
 const PostList: React.FC = () => {
   const currentPage = useSelector(selectPostListViewPage);
-  const [getPosts, { data: fetchedData }] = useGetPostsLazyQuery();
+  const [getPosts, { data: fetchedData, isLoading, isFetching }] = useGetPostsLazyQuery();
   const [nextPage, setNextPage] = useState<number | undefined>();
   const [posts, setPosts] = useState<Array<Post>>([]);
 
@@ -25,10 +25,16 @@ const PostList: React.FC = () => {
 
   return (
     <div css={PostListStyle.root}>
-      {posts.map((post) => (
-        <PostItem key={post.id} post={post} />
-      ))}
-      <PostListPagination currentPage={currentPage} nextPage={nextPage} />
+      {isLoading || isFetching ? (
+        <p css={PostListStyle.loadingText}>Now Loading...</p>
+      ) : (
+        <>
+          {posts.map((post) => (
+            <PostItem key={post.id} post={post} />
+          ))}
+          <PostListPagination currentPage={currentPage} nextPage={nextPage} />
+        </>
+      )}
     </div>
   );
 };
