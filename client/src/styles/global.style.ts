@@ -9,8 +9,13 @@ const palette = css`
   :root {
     --color-back: rgb(255, 255, 255);
     --color-text: rgb(0, 0, 0);
+    --color-gray: rgb(230, 230, 230);
+    --color-gray-dark: rgb(160, 160, 160);
+    --color-error: rgb(255, 106, 95);
     --color-primary: rgb(46, 196, 182);
     --color-primary-light: rgb(203, 243, 240);
+    --color-secondary: rgb(255, 159, 28);
+    --color-secondary-light: rgb(255, 191, 105);
   }
 `;
 
@@ -41,6 +46,22 @@ const base = css(
 
     small {
       font-size: 0.8rem;
+    }
+
+    input,
+    button {
+      appearance: none;
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.8;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      outline: none;
+      border: 0;
     }
   `
 );
