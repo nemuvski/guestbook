@@ -12,6 +12,8 @@ export const createPostValidator = body('body')
   .isEmpty()
   .withMessage('フィールドが存在しないか、空です')
   .isString()
-  .withMessage('文字列のみです');
+  .withMessage('文字列のみです')
+  .isLength({ max: 100 })
+  .withMessage('100文字までです');
 
 export default { getPostsValidator, createPostValidator };
