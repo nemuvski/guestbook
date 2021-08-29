@@ -27,12 +27,16 @@ yarn setup
 ```sh
 # 起動 (コンテナがまだない場合は作成されます)
 yarn db:run
+# または...
+docker-compose up -d
 
 # 停止
 yarn db:stop
+# または...
+docker-compose stop
 ```
 
-※ お好みで `docker-compose` コマンドで操作してもよいです。
+`guestbook` データベースと中で `post` コレクションを用意してください。
 
 ## 🚗 ローカルでの実行
 
