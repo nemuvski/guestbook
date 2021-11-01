@@ -1,6 +1,10 @@
 # 📗 Guestbook
 
-## 📁 構成
+## スクリーンショット
+
+![スクリーンショット](screenshot.png)
+
+## 構成
 
 フロントエンドとバックエンド（REST API）を分けています。
 
@@ -10,7 +14,7 @@ guestbook
   └── server (Express)
 ```
 
-## 🎒 前準備
+## 前準備
 
 ### Nodeパッケージのインストール
 
@@ -18,7 +22,7 @@ guestbook
 yarn setup
 ```
 
-## 🐳 開発に用いるコンテナ
+## 開発に用いるコンテナ
 
 開発時にDockerで **MongoDB** のコンテナを作成して用います。事前にDockerを起動しておいてください。
 
@@ -38,7 +42,7 @@ docker-compose stop
 
 `guestbook` データベースと中で `post` コレクションを用意してください。
 
-## 🚗 ローカルでの実行
+## ローカルでの実行
 
 ReactのアプリケーションとExpressのアプリケーションが立ち上がります。
 
@@ -46,7 +50,7 @@ ReactのアプリケーションとExpressのアプリケーションが立ち�
 yarn start
 ```
 
-## 🔧 ビルド
+## ビルド
 
 `client` と `server` のコードをそれぞれビルドして、 `client/build/` と `server/build/` に出力されます。
 
