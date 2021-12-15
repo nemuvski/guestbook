@@ -6,6 +6,7 @@ export class Post extends BaseEntity {
   readonly id: ObjectID;
 
   @Column()
+  /* eslint-disable indent */
   body: string;
 
   @CreateDateColumn({ type: 'timestamp' })
